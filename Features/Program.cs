@@ -29,11 +29,27 @@ namespace Features
 			{
 				Console.WriteLine(employee.Name);
 			}*/
+
+			Lambdas();
 		}
 
 		private static bool NameStartsWithS(Employee employee)
 		{
 			return employee.Name.StartsWith("S");
+		}
+
+		private static void Lambdas()
+		{
+			// Last parameter is return type
+			Func<int, int> square = x => x * x;
+			Func<int, int, int> add = (x, y) =>
+			{
+				int temp = x + y;
+				return temp;
+			};
+			// Func with void return type is an Action
+			Action<int> write = x => Console.WriteLine(x);
+			write(square(add(3, 5)));
 		}
 	}
 }
